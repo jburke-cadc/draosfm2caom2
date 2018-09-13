@@ -66,8 +66,8 @@
 #
 # ***********************************************************************
 #
-from blank2caom2 import BlankName
+from draosfm2caom2 import DraoSFMName
 
 
 def test_is_valid():
-    assert BlankName('anything').is_valid()
+    assert DraoSFMName('anything').is_valid()

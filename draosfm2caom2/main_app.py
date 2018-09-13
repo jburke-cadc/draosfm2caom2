@@ -79,25 +79,26 @@ from caom2pipe import manage_composable as mc
 from caom2pipe import execute_composable as ec
 
 
-__all__ = ['main_app', 'update', 'DraoSTName', 'COLLECTION', 'APPLICATION']
+__all__ = ['main_app', 'update', 'DraoSFMName', 'COLLECTION', 'APPLICATION']
 
 
-APPLICATION = 'blank2caom2'
-COLLECTION = 'blank'
+APPLICATION = 'draosfm2caom2'
+COLLECTION = 'DRAO-SFM'
 
 
-class BlankName(ec.StorageName):
+class DraoSFMName(ec.StorageName):
     """Naming rules:
     - support mixed-case file name storage, and mixed-case obs id values
     - support uncompressed files in storage
     """
 
-    BLANK_NAME_PATTERN = '*'
+    DRAOSFM_NAME_PATTERN = '*'
 
     def __init__(self, obs_id=None, fname_on_disk=None, file_name=None):
         self.fname_in_ad = file_name
-        super(BlankName, self).__init__(
-            obs_id, COLLECTION, BlankName.DRAOST_NAME_PATTERN, fname_on_disk)
+        super(DraoSFMName, self).__init__(
+            obs_id, COLLECTION, DraoSFMName.DRAOSFM_NAME_PATTERN, 
+            fname_on_disk)
 
     def is_valid(self):
         return True
